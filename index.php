@@ -59,12 +59,16 @@ if (isset($_POST['register_match'])) {
     $loser = $_POST['loser'];
     $score = htmlspecialchars($_POST['score']);
 
+    // Split score på "-" for at få point til vinder og taber
+    list($winnerPoints, $loserPoints) = explode('-', $score);
+
     // Find og opdater vinder og taber i $data
     foreach ($data['players'] as &$player) {
         if ($player['name'] === $winner) {
-            $player['points'] += 3; // Justér point som ønsket
+            $player['points'] += (int)$winnerPoints;
             $player['wins'] += 1;
         } elseif ($player['name'] === $loser) {
+            $player['points'] += (int)$loserPoints;
             $player['losses'] += 1;
         }
     }
@@ -76,6 +80,8 @@ if (isset($_POST['register_match'])) {
         'loser' => $loser,
         'score' => $score
     ];
+
+    // Gem de opdaterede data i JSON-filen
     saveData($data);
 
     // Omdiriger for at undgå genindsendelse ved opdatering
@@ -88,7 +94,7 @@ if (isset($_POST['register_match'])) {
 <html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Turneringshåndtering</title>
+    <title>Sten, saks & papir</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
