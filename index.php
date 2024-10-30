@@ -75,7 +75,7 @@ if (isset($_POST['register_match'])) {
 
     // Tilføj kamp til matches
     $data['matches'][] = [
-        'timestamp' => date('Y-m-d H:i:s'),
+        'timestamp' => date('d-m-Y H:i:s'),
         'winner' => $winner,
         'loser' => $loser,
         'score' => $score
@@ -98,6 +98,9 @@ if (isset($_POST['register_match'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="game-header">
+        <h1>Sten Saks Papir</h1>
+    </header>
 <div class="container">
 
     <!-- Tilføj Deltager Sektion -->
@@ -138,7 +141,7 @@ if (isset($_POST['register_match'])) {
             <thead>
                 <tr>
                     <th>Navn</th>
-                    <th>Points</th>
+                    <th>Point</th>
                     <th>Win%</th>
                 </tr>
             </thead>
@@ -160,7 +163,7 @@ if (isset($_POST['register_match'])) {
 
     <!-- Seneste Kampe Sektion -->
     <section class="section">
-        <h2>Seneste Kampe</h2>
+        <h2>Seneste 10 Kampe</h2>
         <table class="table">
             <thead>
                 <tr>

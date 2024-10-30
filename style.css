@@ -1,4 +1,3 @@
-/* Farvepalet */
 :root {
     --primary-blue: #007bff;
     --dark-blue: #004080;
@@ -18,28 +17,28 @@ body {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     color: var(--dark-blue);
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--primary-blue);
 }
 
 p, label {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 button {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     color: white;
     background-color: var(--primary-blue);
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -53,15 +52,21 @@ button:active {
 }
 
 input[type="text"], select {
-    padding: 8px;
-    font-size: 14px;
+    padding: 6px;
+    font-size: 13px;
     border: 1px solid var(--medium-gray);
     border-radius: 4px;
     width: 100%;
     margin-top: 5px;
 }
 
-/* Komponentstil */
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -69,7 +74,8 @@ input[type="text"], select {
 }
 
 .table th, .table td {
-    padding: 12px;
+    padding: 8px;
+    font-size: 13px;
     border-bottom: 1px solid var(--medium-gray);
     text-align: left;
 }
@@ -82,7 +88,6 @@ input[type="text"], select {
     background-color: var(--light-gray);
 }
 
-/* Fejlmeddelelser */
 .error {
     color: var(--error-red);
     font-size: 14px;
@@ -99,15 +104,33 @@ input[type="text"], select {
     display: none;
 }
 
-/* Øg margin mellem sektionerne for bedre adskillelse */
 .section {
-    margin-bottom: 40px;
-}
-
-/* Giv hver sektion en let grå baggrund for at fremhæve */
-.section {
+    margin-bottom: 20px;
+    padding: 15px;
     background-color: #ffffff;
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-header {
+    width: 80%; 
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+    padding: 15px;
+    background-color: var(--primary-blue);
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-header h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.section h2 {
+    text-align: center;
+    margin-top: 0;
 }
