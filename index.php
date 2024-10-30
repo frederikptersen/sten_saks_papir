@@ -1,18 +1,14 @@
 <?php
-// Filsti til JSON-datafilen
 define('DATA_FILE', 'data.json');
 
 // Funktion til at hente data fra JSON-filen
 function getData() {
     if (!file_exists(DATA_FILE)) {
-        // Opret grundlæggende data, hvis filen ikke eksisterer
         $data = ['players' => [], 'matches' => []];
-        saveData($data); // Gem grundstrukturen i data.json
+        saveData($data);
     } else {
-        // Læs data fra filen
         $data = json_decode(file_get_contents(DATA_FILE), true);
         
-        // Hvis filen er tom eller ikke korrekt struktureret, initialiserer vi den
         if (!is_array($data)) {
             $data = ['players' => [], 'matches' => []];
             saveData($data);
@@ -29,12 +25,12 @@ function saveData($data) {
 // Hent data i starten af scriptet, så det er tilgængeligt for hele HTML'en
 $data = getData();
 
-// Håndter indsendelse af "Tilføj Deltager"
+// "Tilføj Deltager"
 if (isset($_POST['add_player'])) {
     $new_player = htmlspecialchars($_POST['player_name']);
     $exists = false;
 
-    // Tjek om spilleren allerede findes
+    // Lav et tjek om spilleren allerede findes
     foreach ($data['players'] as $player) {
         if ($player['name'] === $new_player) {
             $exists = true;
@@ -42,7 +38,7 @@ if (isset($_POST['add_player'])) {
         }
     }
 
-    // Tilføj ny deltager, hvis navnet ikke findes
+    // Hvis ikke, så tilføj ny deltager
     if (!$exists) {
         $data['players'][] = ['name' => $new_player, 'points' => 0, 'wins' => 0, 'losses' => 0];
         saveData($data);
@@ -53,16 +49,15 @@ if (isset($_POST['add_player'])) {
     exit();
 }
 
-// Håndter indsendelse af "Registrer Kamp"
+// "Registrer Kamp"
 if (isset($_POST['register_match'])) {
     $winner = $_POST['winner'];
     $loser = $_POST['loser'];
     $score = htmlspecialchars($_POST['score']);
 
-    // Split score på "-" for at få point til vinder og taber
     list($winnerPoints, $loserPoints) = explode('-', $score);
 
-    // Find og opdater vinder og taber i $data
+    // opdater vinder og taber i $data
     foreach ($data['players'] as &$player) {
         if ($player['name'] === $winner) {
             $player['points'] += (int)$winnerPoints;
@@ -73,7 +68,7 @@ if (isset($_POST['register_match'])) {
         }
     }
 
-    // Tilføj kamp til matches
+    // tilføj kamp til matches
     $data['matches'][] = [
         'timestamp' => date('d-m-Y H:i:s'),
         'winner' => $winner,
@@ -84,7 +79,7 @@ if (isset($_POST['register_match'])) {
     // Gem de opdaterede data i JSON-filen
     saveData($data);
 
-    // Omdiriger for at undgå genindsendelse ved opdatering
+    // undgå genindsendelse ved opdatering
     header("Location: index.php");
     exit();
 }
@@ -191,7 +186,6 @@ if (isset($_POST['register_match'])) {
 
 </div>
 
-<!-- Toast Notification -->
 <div id="toast" class="toast">Ranklist opdateret!</div>
 
 <script src="script.js"></script>

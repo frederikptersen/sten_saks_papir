@@ -7,7 +7,6 @@
     --error-red: #ff4d4d;
 }
 
-/* Typografi */
 body {
     font-family: 'Roboto', 'Open Sans', sans-serif;
     background-color: var(--light-gray);
