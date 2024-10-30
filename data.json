@@ -2,15 +2,15 @@
     "players": [
         {
             "name": "Test 1",
-            "points": 18,
-            "wins": 6,
-            "losses": 7
+            "points": 21,
+            "wins": 7,
+            "losses": 8
         },
         {
             "name": "Test 2",
-            "points": 12,
-            "wins": 4,
-            "losses": 6
+            "points": 15,
+            "wins": 5,
+            "losses": 7
         },
         {
             "name": "Test 3",
@@ -95,6 +95,18 @@
         {
             "timestamp": "30-10-2024 12:30:29",
             "winner": "Test 3",
+            "loser": "Test 1",
+            "score": "2-1"
+        },
+        {
+            "timestamp": "30-10-2024 12:55:02",
+            "winner": "Test 1",
+            "loser": "Test 2",
+            "score": "2-1"
+        },
+        {
+            "timestamp": "30-10-2024 13:41:15",
+            "winner": "Test 2",
             "loser": "Test 1",
             "score": "2-1"
         }
