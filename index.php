@@ -76,10 +76,10 @@ if (isset($_POST['register_match'])) {
         'score' => $score
     ];
 
-    // Gem de opdaterede data i JSON-filen
+    // gem de opdaterede data i JSON-filen
     saveData($data);
 
-    // undgå genindsendelse ved opdatering
+    // undgå genindsendelse ved opdatering af sitet
     header("Location: index.php");
     exit();
 }

@@ -2,9 +2,9 @@
     "players": [
         {
             "name": "Test 1",
-            "points": 21,
-            "wins": 7,
-            "losses": 8
+            "points": 22,
+            "wins": 8,
+            "losses": 9
         },
         {
             "name": "Test 2",
@@ -14,9 +14,27 @@
         },
         {
             "name": "Test 3",
-            "points": 7,
-            "wins": 3,
+            "points": 8,
+            "wins": 4,
+            "losses": 1
+        },
+        {
+            "name": "Test 4",
+            "points": 0,
+            "wins": 0,
             "losses": 0
+        },
+        {
+            "name": "Test 5",
+            "points": 1,
+            "wins": 1,
+            "losses": 0
+        },
+        {
+            "name": "Test 6",
+            "points": 0,
+            "wins": 0,
+            "losses": 1
         }
     ],
     "matches": [
@@ -109,6 +127,24 @@
             "winner": "Test 2",
             "loser": "Test 1",
             "score": "2-1"
+        },
+        {
+            "timestamp": "31-10-2024 07:48:26",
+            "winner": "Test 3",
+            "loser": "Test 1",
+            "score": "1-0"
+        },
+        {
+            "timestamp": "31-10-2024 08:39:03",
+            "winner": "Test 1",
+            "loser": "Test 3",
+            "score": "1-0"
+        },
+        {
+            "timestamp": "31-10-2024 08:59:30",
+            "winner": "Test 5",
+            "loser": "Test 6",
+            "score": "1-0"
         }
     ]
 }
